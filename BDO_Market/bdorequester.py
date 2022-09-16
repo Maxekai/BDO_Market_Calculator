@@ -71,9 +71,8 @@ class Item:
         "keyType": 0,
         "mainKey": self.id
     }
-        #response = requests.request('POST', url, json=payload, headers=headers) #ACTIVAR CUANDO SE USE DE VERDAD, ELIMINAR CODIGO DE ABAJO QUE SIRVE COMO SUSTITUTO
-        return {"resultCode":0,"resultMsg":"11853-0-0-319000000-0-855072-11400000-342000000-342000000-1659167525|11853-1-1-950000000-26-57821-34100000-1020000000-1010000000-1659156482|11853-2-2-2850000000-11-52252-102000000-3060000000-3060000000-1659154427|11853-3-3-7950000000-15-30072-284000000-8500000000-8150000000-1659165016|11853-4-4-26900000000-20-20374-1360000000-40800000000-26900000000-1659166978|11853-5-5-166000000000-1-524-2730000000-200000000000-162000000000-1659125442|"}
-        #return json.loads(response.text)
+        response = requests.request('POST', url, json=payload, headers=headers)
+        return json.loads(response.text)
         
     def produce_array(self):
         response_data=self.response['resultMsg']
@@ -119,8 +118,6 @@ def get_history(item):
     "subKey": 0
     }
 
-    #response = requests.request('POST', url, json=payload, headers=headers)
-    #print(response.text)
 
 class Price:
     def __init__(self,array,level):
