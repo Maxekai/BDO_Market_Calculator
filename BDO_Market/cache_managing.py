@@ -8,7 +8,7 @@ class Cache:
         self.times=times
         
     def save_cache(self):
-        with open('cache.json', 'r+') as outfile:
+        with open('BDO_Market/cache.json', 'r+') as outfile:
             json.dump(self.__dict__,outfile,indent=4)
 
     def cache_array(self,name,array):
@@ -26,7 +26,7 @@ class Cache:
     @staticmethod
     def load_cache():
         #Creates a cache instance reading from the file
-        f=open('cache.json','r')
+        f=open('BDO_Market/cache.json','r')
         dictionary=json.load(f)
         saved=dictionary["saved"]
         f.close()
