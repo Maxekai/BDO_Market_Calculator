@@ -135,7 +135,11 @@ class Executer:
         
 if __name__ == "__main__":
     plt.style.use('seaborn')
-    Commander()
+    while True:
+        Commander()
+        print("Ask again? y/n")
+        if input()!= "y":
+            break
     
     
 
