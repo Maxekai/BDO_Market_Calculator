@@ -31,6 +31,11 @@ class Cache:
         saved=dictionary["saved"]
         f.close()
         return Cache(dictionary['saved'],dictionary["times"])
+    
+    @staticmethod
+    def clear_cache():
+        with open('BDO_Market/cache.json', 'w'):
+            pass
 
 class CacheLoader:
     #Creates a Cache instance, by using a static method if there is information in the file, or creates an empty cache instance if there is not.

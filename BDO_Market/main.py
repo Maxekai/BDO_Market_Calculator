@@ -3,12 +3,8 @@ import stonky_nerd_stuff as sn
 import failstackcalculator as fs
 import failstack_comparing as fc
 import matplotlib.pyplot as plt
-import pprint
-#Geometric: median, expected, confidence interval, gamble, show distribution
-#Binomial:expected profit, gamble, show distribution.
-#Big Gambling: big gambling
-#Programmed Big Gambling: programmed big gambling
-#Failstacks: Failstack Plotting
+import warnings
+import cache_managing as cm
 
 def TrueHandler(input):
     if input.lower()=='y':
@@ -134,9 +130,11 @@ class Executer:
 
         
 if __name__ == "__main__":
+    warnings.filterwarnings("ignore")
     plt.style.use('seaborn')
     while True:
         Commander()
+        cm.CacheManager.CachedArrays.clear_cache()
         print("Ask again? y/n")
         if input()!= "y":
             break

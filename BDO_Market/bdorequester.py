@@ -14,13 +14,9 @@ class Item:
             self.check_if_cached_exists()
        
     def check_if_cached_exists(self):
-        #gets a cached array if it belongs to the item and its less than 1 hour old. otherwise it produces a request
+        #gets a cached array if it belongs to the item. otherwise it produces a request
             if self.name in cm.CacheManager.CachedArrays.saved:
-                if time.time()-cm.CacheManager.CachedArrays.times[self.name]<3600:
-                    self.array=np.array(cm.CacheManager.CachedArrays.lookup(self.name))
-                else:
-                    self.request_coordination()
-
+                self.array=np.array(cm.CacheManager.CachedArrays.lookup(self.name))
             else:
                 self.request_coordination()
     
